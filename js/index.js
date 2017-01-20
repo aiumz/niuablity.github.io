@@ -29,7 +29,7 @@ var config={
 	"beyondcode":[
 		{
 			"name":"thinking",
-			"src":"http://jquery.cuishifeng.cn/"
+			"src":"./beyondcode/think.html"
 		}
 	]
 }
