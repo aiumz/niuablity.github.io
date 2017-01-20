@@ -5,11 +5,6 @@
 	<title>我的首页</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<style type="text/css">
-		.tab-pane{
-			padding-top: 20px
-		}
-	</style>
 </head>
 <body>
 	<div class="container">
@@ -25,43 +20,31 @@
 		  <li role="presentation"><a href="#beyondcode" role="tab" data-toggle="tab">beyond code</a></li>
 		</ul>
 		<!-- Tab panes -->
-		<div class="tab-content">
-		  <div role="tabpanel" class="tab-pane active" id="website">
-				<div class="row">
-					  <div class="col-md-2"><a class="btn" target="_black" href="https://github.com/">github</a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href="http://www.bootcdn.cn/">bootcdn</a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href="http://www.bootcss.com/">bootstrap</a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href="http://jquery.cuishifeng.cn/">jQuery API</a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">廖雪峰的官网</a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href=""></a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href=""></a></div>
-				</div>
-		  </div>
-		  <div role="tabpanel" class="tab-pane" id="angular">
-
-		  </div>
-		  <div role="tabpanel" class="tab-pane" id="node">
-
-		  </div>
-		  <div role="tabpanel" class="tab-pane" id="mongodb">
-
-		  </div>   
-		  <div role="niuchat" class="tab-pane" id="niuchat">
-				
-		  </div>  
-		  <div role="tabpanel" class="tab-pane" id="other">
-		  	
-		  </div>
-		  <div role="tabpanel" class="tab-pane" id="beyondcode">
-		  	<div class="row">
-					  <div class="col-md-2"><a class="btn" target="_black" href="./beyondcode/think.html">thinking</a></div>
-					  <div class="col-md-2"><a class="btn" target="_black" href=""></a></div>
-				</div>
-		  	
-		  </div>
+		<div class="tab-content" style="padding-top: 20px">
+		  <div role="tabpanel" class="tab-pane active" id="website"></div>
+		  <div role="tabpanel" class="tab-pane" id="angular"></div>
+		  <div role="tabpanel" class="tab-pane" id="node"></div>
+		  <div role="tabpanel" class="tab-pane" id="mongodb"></div>   
+		  <div role="niuchat" class="tab-pane" id="niuchat"></div>  
+		  <div role="tabpanel" class="tab-pane" id="other"></div>
+		  <div role="tabpanel" class="tab-pane" id="beyondcode"></div>
 		</div>
 	</div>
 	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript">
+		var btn='<div class="col-md-2"><a class="btn" target="_black" href=""></a></div>';
+		var wrap='<div class="row"></div>';
+		$.each(config,function(index,item){
+			var e_wrap=$(wrap);
+			$.each(item,function(index1,item1){
+				var _btn=$(btn);
+				_btn.find("a").attr("href",item1.src).html(item1.name)
+				e_wrap.append(_btn)
+			})
+			$("#"+index).append(e_wrap)
+		})
+	</script>
 </body>
 </html>
